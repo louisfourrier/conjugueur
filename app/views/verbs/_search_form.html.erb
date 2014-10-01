@@ -1,0 +1,25 @@
+<%= form_tag({controller: "verbs", action: "search"}, method: "get", class: "form") do %>
+<div class="col-md-12">
+	<% if local_assigns.has_key? :verb%>
+	<%= text_field_tag(:verb, verb, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :placeholder => "Entrer le verbe que vous souhaitez conjuguer", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+	<% else %>
+	<%= text_field_tag(:verb, nil, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :placeholder => "Entrer le verbe que vous souhaitez conjuguer", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+	<% end %>
+</div>
+<div class="col-md-12 text-center">
+	<br />
+	<%= submit_tag("Conjuguer", :class => "btn btn-warning btn-lg nadvence-family") %>
+</div>
+
+<% end %>
+
+<script>
+	$(function() {
+
+		$(".typeahead").autocomplete({
+			limit : 15,
+			source : '/verbs/autocomplete.json'
+		});
+
+	}); 
+</script>

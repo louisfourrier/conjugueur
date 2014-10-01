@@ -1,0 +1,4 @@
+$(function(){
+	$("#insert-verbs").html("<%= escape_javascript render(partial: 'verbs/verbs_list', locals:{verbs: @verbs})%>");
+
+});

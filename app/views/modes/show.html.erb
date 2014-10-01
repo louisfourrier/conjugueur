@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @mode.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @mode.description %>
+</p>
+
+<p>
+  <strong>Markup:</strong>
+  <%= @mode.markup %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @mode.order %>
+</p>
+
+<p>Temps</p>
+
+<% @mode.tenses.each do |t|%>
+<%= t.name %> |
+
+<% end %>
+
+<%= link_to 'Edit', edit_mode_path(@mode) %> |
+<%= link_to 'Back', modes_path %>

@@ -1,0 +1,41 @@
+<%= form_for(@tense_entry) do |f| %>
+  <% if @tense_entry.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@tense_entry.errors.count, "error") %> prohibited this tense_entry from being saved:</h2>
+
+      <ul>
+      <% @tense_entry.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :total_content %><br>
+    <%= f.text_area :total_content %>
+  </div>
+  <div class="field">
+    <%= f.label :begin_content %><br>
+    <%= f.text_area :begin_content %>
+  </div>
+  <div class="field">
+    <%= f.label :important_content %><br>
+    <%= f.text_area :important_content %>
+  </div>
+  <div class="field">
+    <%= f.label :order %><br>
+    <%= f.number_field :order %>
+  </div>
+  <div class="field">
+    <%= f.label :verb_id %><br>
+    <%= f.text_field :verb_id %>
+  </div>
+  <div class="field">
+    <%= f.label :tense_id %><br>
+    <%= f.text_field :tense_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

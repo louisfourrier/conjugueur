@@ -1,0 +1,123 @@
+<% content_for(:nav_conjug) do %>
+true
+<% end %>
+<p id="notice">
+	<%= notice %>
+</p>
+
+<div class="row">
+	
+	
+	
+	<div class="col-sm-3 sidebar">
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Informations
+			</div>
+			<p>
+				<strong>Groupe:</strong>
+				<%= @verb.group %>
+			</p>
+
+			<p>
+				<strong>Emploi du verbe :</strong>
+				<%= @verb.employ %>
+			</p>
+
+			<p>
+				<strong>Auxiliaire de conjugaison:</strong>
+				<%= @verb.auxiliary %>
+			</p>
+
+			
+		</div>
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Définition
+			</div>
+
+			<%= @verb.definition.html_safe %>
+			
+			<% if @verb.definition.nil? or @verb.definition.empty? %>
+			Pas de définition pour ce verbe
+			<% end %>
+		</div>
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Synonymes
+			</div>
+
+			<% @verb.synonyms.each do |verb|%>
+
+			<%= link_to verb.content.to_s, verb %>
+
+			<% end%>
+
+			<% if @verb.synonyms.empty?%>
+
+			Aucun synonymes
+
+			<% end %>
+		</div>
+		
+		<div class="nadvence-box col-md-12">
+			<div class="box-title">
+				Verbes proches
+			</div>
+
+			<% @verb.similar_verbs.each do |verb| %>
+			<%= link_to verb.content.to_s, verb %>
+			<% end %>
+			<% if @verb.similar_verbs.empty?%>
+
+			Aucun verbe proche
+
+			<% end %>
+		</div>
+	</div>
+	<div class="col-sm-9 col-sm-offset-3">
+	<h1 class="page-header text-center nadvence-box box-big-title">Conjugaison du verbe <span class="color-nadvence"><%= @verb.content %></span></h1>
+		
+		<div style="text-align: right;">
+		<small class="small-text">
+		<% Mode.order(:order).each do |mode|%>
+		<em><%= link_to "#" + mode.name, ("#" + mode.name).to_s%></em>
+		<% end %>
+		</small>
+		</div>
+		
+		<% Mode.order(:order).each do |mode|%>
+		
+			<% if mode.tenses_count <= 2 %>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+			<% else %>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+			<% end %>
+		
+		<span class="anchor" id="<%= mode.name %>"></span>
+		<h2 class="text-center box-title color-nadvence page-header mode-title nadvence-box"><%= mode.name%></h2>
+
+		<% mode.tenses.each do |tense|%>
+		<% if mode.tenses_count <= 2 %>
+		<div class="col-lg-6 col-md-6 col-sm-6">
+		<% else %>
+		<div class="col-lg-3 col-md-4 col-sm-6">
+			<% end %>
+		<h4 class="page-header tense-title"><%= tense.name %></h4>
+		<ul class="tense-entries-li">
+			<% @verb.tense_entries.where('tense_id = ?' , tense.id).order(:order).each do |entry| %>
+			<li>
+				<%= entry.total_content.html_safe%>
+			</li>
+			<% end %>
+		</ul>
+		</div>
+		<% end %>
+		</div>
+		<% end %>
+
+
+		
+	</div>
+	
+</div>

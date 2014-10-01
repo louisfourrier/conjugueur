@@ -1,0 +1,29 @@
+# == Schema Information
+#
+# Table name: tenses
+#
+#  id          :integer          not null, primary key
+#  name        :text
+#  description :text
+#  markup      :text
+#  mode_id     :integer
+#  entry_type  :integer
+#  created_at  :datetime
+#  updated_at  :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyText
+  description: MyText
+  markup: MyText
+  mode_id: 
+  entry_type: 1
+
+two:
+  name: MyText
+  description: MyText
+  markup: MyText
+  mode_id: 
+  entry_type: 1

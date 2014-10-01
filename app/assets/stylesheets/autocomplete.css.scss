@@ -1,0 +1,23 @@
+@import 'colors';
+
+.ui-widget-content {
+border: 1px solid #dddddd;
+background-color: white;
+color: #333333;
+}
+
+.ui-state-hover,
+.ui-widget-content .ui-state-hover,
+.ui-widget-header .ui-state-hover,
+.ui-state-focus,
+.ui-widget-content .ui-state-focus,
+.ui-widget-header .ui-state-focus {
+  border: 1px solid $nadvence;
+  background-color: white;
+  font-weight: bold;
+  color: $nadvence;
+}
+
+.ui-menu{
+  z-index: 10000000;
+}

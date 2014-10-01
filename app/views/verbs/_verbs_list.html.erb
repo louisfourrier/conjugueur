@@ -1,0 +1,41 @@
+<div class="text-center">
+	<h3>Nombre de verbes trouvés: <%= verbs.count %></h3>
+</div>
+
+<% if !verbs.empty?%>
+<div class="text-center">
+	<%= will_paginate verbs, :params => { :controller => "verbs", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails %>
+</div>
+<div class="text-center col-md-10 col-md-offset-1">
+	<table class="table verbs-table">
+		<thead>
+			<tr >
+				<th class="text-center">Verbe</th>
+				<th class="text-center">Groupe</th>
+				<th class="text-center">Nombre de lettres</th>
+
+			</tr>
+		</thead>
+
+		<tbody>
+			<% verbs.each do |verb| %>
+			<tr>
+				<td><span class="verb-name"><%= link_to verb.content, verb %></span></td>
+				<td><%= verb.group %></td>
+				<td><%= verb.letters_count %></td>
+
+			</tr>
+			<% end %>
+		</tbody>
+	</table>
+</div>
+<% else%>
+<div class="nadvence-box box-title text-center">
+	Aucun verbe trouvé
+</div>
+<% end %>
+
+<br>
+<div class="text-center">
+	<%= will_paginate verbs, :params => { :controller => "verbs", :action => "index", :format => "html" },  renderer: BootstrapPagination::Rails %>
+</div>

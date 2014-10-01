@@ -1,0 +1,45 @@
+<% content_for(:nav_conjug) do %>
+true
+<% end %>
+
+<h1 class="page-header text-center nadvence-box box-big-title">Liste des verbes francais</h1>
+
+<div class="row">
+	<div class="col-md-6 col-md-offset-3">
+		<div class="nadvence-box">
+			<div class="box-title">
+				Premières lettres
+			</div>
+			 <input id="firstletters" type="text" name="firstletter" class="form-control search-input" placeholder="Enter first letters" value="<%= params[:starting_letter] %>" />
+		</div>
+	</div>
+	
+</div>
+
+<br />
+
+<div class="container">
+<div id="insert-verbs">
+	<%= render(partial: 'verbs/verbs_list', locals:{verbs: @verbs})%>
+</div>
+
+</div>
+
+<script>
+	$(function() {
+		$("#firstletters").on('input',function(e){
+			//alert('change');
+			$("#insert-verbs").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
+			var letters = $("#firstletters").val();
+			$.ajax({
+				url : "/verbs.js",
+				type : "GET",
+				dataType: "script",
+				data : {
+					starting_letter : letters
+					
+				}
+			})
+		})
+	}); 
+</script>

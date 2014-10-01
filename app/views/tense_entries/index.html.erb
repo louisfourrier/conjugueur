@@ -1,0 +1,35 @@
+<h1>Listing tense_entries</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Total content</th>
+      <th>Begin content</th>
+      <th>Important content</th>
+      <th>Order</th>
+      <th>Verb</th>
+      <th>Tense</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @tense_entries.each do |tense_entry| %>
+      <tr>
+        <td><%= tense_entry.total_content %></td>
+        <td><%= tense_entry.begin_content %></td>
+        <td><%= tense_entry.important_content %></td>
+        <td><%= tense_entry.order %></td>
+        <td><%= tense_entry.verb %></td>
+        <td><%= tense_entry.tense %></td>
+        <td><%= link_to 'Show', tense_entry %></td>
+        <td><%= link_to 'Edit', edit_tense_entry_path(tense_entry) %></td>
+        <td><%= link_to 'Destroy', tense_entry, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Tense entry', new_tense_entry_path %>

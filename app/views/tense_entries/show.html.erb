@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Total content:</strong>
+  <%= @tense_entry.total_content %>
+</p>
+
+<p>
+  <strong>Begin content:</strong>
+  <%= @tense_entry.begin_content %>
+</p>
+
+<p>
+  <strong>Important content:</strong>
+  <%= @tense_entry.important_content %>
+</p>
+
+<p>
+  <strong>Order:</strong>
+  <%= @tense_entry.order %>
+</p>
+
+<p>
+  <strong>Verb:</strong>
+  <%= @tense_entry.verb %>
+</p>
+
+<p>
+  <strong>Tense:</strong>
+  <%= @tense_entry.tense %>
+</p>
+
+<%= link_to 'Edit', edit_tense_entry_path(@tense_entry) %> |
+<%= link_to 'Back', tense_entries_path %>

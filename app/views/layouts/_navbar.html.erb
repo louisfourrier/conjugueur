@@ -1,0 +1,66 @@
+<div class="navbar navbar-default navbar-fixed-top navbar-nadvence" role="navigation">
+	<div class="container-fluid">
+		<div class="navbar-header">
+			<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="sr-only">Toggle navigation</span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+				<span class="icon-bar"></span>
+			</button>
+			<h1 class="navbar-h1"><a class="navbar-brand nadvence-family" href="<%= root_path %>"><i class="fa fa-dot-circle-o"></i>  <%= content_for?(:project_name) ? yield(:project_name) : I18n.t('.website_title') %></a><h1>
+		</div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav">
+            <li><%= link_to "Liste des verbes", verbs_path, :class => "nadvence-family" %></li>
+            
+          
+            
+            
+          </ul>
+          
+          <% if content_for?(:nav_conjug) %>
+          <%= form_tag({controller: "verbs", action: "search"}, method: "get", class: "navbar-form navbar-left") do %>
+         
+          
+		<div class="form-group">
+			
+			<%= text_field_tag(:verb, nil, :id => "search-nav", :class => "form-control typeahead-nav nav-search-input input-lg", :autocomplete => "off", :placeholder => "Entrer un verbe", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+			
+		</div>
+		
+			
+			<%= submit_tag("Conjuguer", :class => "btn btn-warning nadvence-family btn-lg") %>
+		
+		<% end %>
+		 <% end %>
+		 <ul class="nav navbar-nav">
+		 <li id="page_loading" hidden><%= image_tag "loading-spinner.gif", :width => "30px", :style => "margin-top: 15px;"%></li>
+		 </ul>
+          
+			<ul class="nav navbar-nav navbar-right">
+				<li class="facebook-bg"><a href="https://www.facebook.com/rebbleit" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
+				<li class="twitter-bg"><a href="https://twitter.com/rebble_it"  target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
+				<li class="google-plus-bg"><a href="https://plus.google.com/+RebbleIt"  target="_blank"><i class="fa fa-google-plus fa-lg"></i></a></li>
+				<li class="dropdown">
+					<a href="#" class="dropdown-toggle" data-toggle="dropdown"><%= I18n.locale.to_s %> <span class="caret"></span></a>
+					<ul class="dropdown-menu" role="menu">
+							<% I18n.available_locales.each do |l| %>
+								<li>
+									<%= link_to l.to_s, :locale => l.to_s %>
+								</li>
+							<% end %>
+					</ul>
+				</li>
+			</ul>
+		</div><!--/.nav-collapse -->
+	</div>
+</div>
+<script>
+	$(function() {
+
+		$(".typeahead-nav").autocomplete({
+			limit : 15,
+			source : '/verbs/autocomplete.json'
+		});
+	}); 
+</script>

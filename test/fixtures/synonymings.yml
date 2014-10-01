@@ -1,0 +1,20 @@
+# == Schema Information
+#
+# Table name: synonymings
+#
+#  id         :integer          not null, primary key
+#  verb_id    :integer
+#  synonym_id :integer
+#  created_at :datetime
+#  updated_at :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  verb_id: 
+  synonym_id: 1
+
+two:
+  verb_id: 
+  synonym_id: 1
