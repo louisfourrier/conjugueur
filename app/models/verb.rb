@@ -73,6 +73,8 @@ class Verb < ActiveRecord::Base
   def page_content_to_html
     html = Nokogiri::HTML(self.page_content)
   end
+  
+ 
 
   # Get the first letter.
   def start_letter

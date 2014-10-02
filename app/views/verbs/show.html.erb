@@ -39,11 +39,11 @@ true
 			<div class="box-title">
 				Définition
 			</div>
-
-			<%= @verb.definition.html_safe %>
-			
 			<% if @verb.definition.nil? or @verb.definition.empty? %>
 			Pas de définition pour ce verbe
+			<% else%>
+			<%= @verb.definition.html_safe %>
+			
 			<% end %>
 		</div>
 		<div class="nadvence-box col-md-12">
