@@ -242,7 +242,6 @@ class Verb < ActiveRecord::Base
         tab = text.gsub(/<\/?p>/, '').split('<br>')
         i = 1
         tab.each do |entry|
-          puts entry.to_s
           new_entry = TenseEntry.new(:total_content => entry.to_s, :order => i)
           self.tense_entries << new_entry
           tensemodel.tense_entries << new_entry

@@ -193,7 +193,11 @@ task :definition_crawler => :environment do
 end
 
 
-task :global_update => :environment do
-  Verb.global_update
+task :verb_global_update => :environment do
+  Verb.find_each do |verb|
+      puts verb.id.to_s
+      verb.get_synonyms
+      verb.fill_tenses
+    end
 end
 
