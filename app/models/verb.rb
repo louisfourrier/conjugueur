@@ -16,7 +16,6 @@
 #  letters_count :integer          default(0)
 #  research_name :text
 #
-
 class Verb < ActiveRecord::Base
 
   validates :content, presence: true
@@ -25,7 +24,7 @@ class Verb < ActiveRecord::Base
   after_create :update_research_name
   after_create :update_first_letter
   after_create :update_letters_count
-  
+
   before_create :normalize_content
 
   has_many :synonymings
@@ -33,64 +32,58 @@ class Verb < ActiveRecord::Base
   has_many :tense_entries
 
   include AlertableMethods
-  
+
   extend FriendlyId
   friendly_id :content, use: :slugged
-  
- 
-  
   def self.filter(attributes)
     attributes.inject(self) do |scope, (key, value)|
-      #return scope.scoped if value.blank?
+    #return scope.scoped if value.blank?
       if value.blank?
-        scope.all
+      scope.all
       else
-          case key.to_sym
-          when :starting_letter
-            scope.where('verbs.first_letter = ?', "#{value}")
-          when :number_letter# regexp search
-            scope.where('verbs.letters_count = ?', "#{value}")
-          else # unknown key (do nothing or raise error, as you prefer to)
-          scope.all
-          end 
+        case key.to_sym
+        when :starting_letter
+          scope.where('verbs.first_letter = ?', "#{value}")
+        when :number_letter# regexp search
+          scope.where('verbs.letters_count = ?', "#{value}")
+        else # unknown key (do nothing or raise error, as you prefer to)
+        scope.all
+        end
       end
     end
   end
-  
+
   def get_tense_entries(tense_id)
     self.tense_entries.where('tense_entries.tense_id = ?', tense_id)
   end
-  
+
   def html_name_bis
     string = I18n.transliterate(self.content)
     string = string.strip
     string = string.gsub(' ', '_')
     return string
   end
-  
-  
+
   # Convert the content in Nokogiri Nodes
   def page_content_to_html
     html = Nokogiri::HTML(self.page_content)
   end
-  
- 
 
   # Get the first letter.
   def start_letter
     return self.content.first
   end
-  
+
   # Number of letter of content
   def count_letter
     return self.content.length
   end
-  
+
   # For the research without accent
   def get_research_name
     return I18n.transliterate(self.content.to_s.strip)
   end
-  
+
   # Transform the name into a URL compatible name
   def get_html_name
     string = I18n.transliterate(self.content)
@@ -135,18 +128,18 @@ class Verb < ActiveRecord::Base
       verb.update(:group => group)
     end
   end
-  
+
   def get_auxiliary_verb
     html = self.page_content_to_html
     part = html.css('div.verbe nav')
     if !part.nil?
-     string = part.to_html.split("<br>")[1]
-     return string.to_s
+      string = part.to_html.split("<br>")[1]
+    return string.to_s
     else
       return "error"
     end
   end
-  
+
   def self.update_auxiliary_verb
     self.find_each do |verb|
       puts verb.id.to_s
@@ -231,10 +224,9 @@ class Verb < ActiveRecord::Base
   end
 
   def fill_tenses
-    markups = Tense.pluck(:markup)
     html = self.page_content_to_html
-    markups.each do |m|
-      tensemodel = Tense.find_by_markup(m)
+    Tense.find_each do |tensemodel|
+      m = tensemodel.markup
       selector = '#' + m + ' + p'
       tense = html.css(selector)
       if !tense.nil?
@@ -254,7 +246,21 @@ class Verb < ActiveRecord::Base
   def self.get_all_tenses
     self.find_each do |verb|
       puts verb.id.to_s
-      verb.fill_tenses
+      html = verb.page_content_to_html
+      Tense.find_each do |tensemodel|
+        selector = '#' + tensemodel.markup.to_s + ' + p'
+        tense = html.css(selector)
+        if !tense.nil?
+          tab = tense.to_html.gsub(/<\/?p>/, '').split('<br>')
+          i = 1
+          tab.each do |entry|
+            new_entry = TenseEntry.new(:total_content => entry.to_s, :order => i)
+            verb.tense_entries << new_entry
+            tensemodel.tense_entries << new_entry
+            i += 1
+          end
+        end
+      end
     end
   end
 
@@ -305,41 +311,40 @@ class Verb < ActiveRecord::Base
       verb.fill_tenses
     end
   end
-  
+
   def similar_verbs
     verbs = Verb.similar_verbs(self.content.to_s)
     return verbs - [self]
   end
-  
+
   def self.similar_verbs(verb)
     string = verb.strip.to_s
     length = string.length
-    
+
     if length > 4
-      
+
       string1 = string.chop
       string2 = string1.chop
       string3 = string2.chop
-    
+
       verb1 = Verb.where('content ilike ?', "#{string1}_%").limit(10)
       verb2 = Verb.where('content ilike ?', "#{string2}_%").limit(10)
       verb3 = Verb.where('content ilike ?', "#{string3}_%").limit(10)
-    
-    
+
     verbs = verb1 + verb2 + verb3
     return verbs.uniq
     else
-      return []
+    return []
     end
   end
 
   private
-  
+
   # Normalize the string
   def normalize_content
     self.content = self.content.to_s.strip.downcase
   end
-  
+
   def update_letters_count
     self.update(:letters_count => self.count_letter)
   end
@@ -348,7 +353,7 @@ class Verb < ActiveRecord::Base
     new_name = self.get_html_name
     self.update(:html_name => new_name)
   end
-  
+
   def update_research_name
     res_name = self.get_research_name
     self.update(:research_name => res_name)
