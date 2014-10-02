@@ -1,5 +1,6 @@
 class ModesController < ApplicationController
   before_action :set_mode, only: [:show, :edit, :update, :destroy]
+  before_filter :no_access
 
   # GET /modes
   # GET /modes.json

@@ -32,4 +32,9 @@ class ApplicationController < ActionController::Base
   { locale: I18n.locale }
   end
   
+  def no_access
+    redirect_to root_path, notice: "Pas autorisé" 
+  end
+  
+  
 end

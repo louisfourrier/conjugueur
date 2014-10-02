@@ -1,6 +1,10 @@
 <% content_for(:nav_conjug) do %>
 true
 <% end %>
+<% provide(:title, "Conjugaison du verbe : " + @verb.content.to_s) %>
+<% provide(:description, "Toutes les conjugaisons et les informations sur le verbe " + @verb.content.to_s) %>
+
+
 <p id="notice">
 	<%= notice %>
 </p>

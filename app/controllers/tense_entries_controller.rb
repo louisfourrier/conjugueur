@@ -1,5 +1,6 @@
 class TenseEntriesController < ApplicationController
   before_action :set_tense_entry, only: [:show, :edit, :update, :destroy]
+  before_filter :no_access
 
   # GET /tense_entries
   # GET /tense_entries.json

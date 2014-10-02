@@ -14,6 +14,7 @@ color: #333333;
 .ui-widget-header .ui-state-focus {
   border: 1px solid $nadvence;
   background-color: white;
+  background:none !important;
   font-weight: bold;
   color: $nadvence;
 }

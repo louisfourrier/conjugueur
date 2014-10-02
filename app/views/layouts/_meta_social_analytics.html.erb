@@ -1,6 +1,6 @@
 <!-- Schema.org markup for Google+ -->
-<meta itemprop="name" content="<%= t '.website_title' %>">
-<meta itemprop="description" content="<%= t '.website_description' %>">
+<meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>">
+<meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('.website_description') %>">
 <meta name="keywords" lang="fr" content="<%= I18n.t 'website_keywords', locale: :fr %>">
 <meta name="keywords" lang="en" content="<%= I18n.t 'website_keywords', locale: :en %>">
 <meta itemprop="image" content="http://www.nadvence-beta.com/assets/nadvence-share.png">
@@ -8,17 +8,17 @@
 <!-- Twitter Card data -->
 <meta name="twitter:card" content="summary">
 <meta name="twitter:site" content="@rebble_it">
-<meta name="twitter:title" content="<%= t '.website_title' %>">
-<meta name="twitter:description" content="<%= t '.website_description' %>">
+<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>">
+<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('.website_description') %>">
 <meta name="twitter:image" content="http://www.nadvence-beta.com/assets/nadvence-share.png">
 <meta name="twitter:domain" content="<%= t '.website_url' %>">/>
 
 <!-- Open Graph data -->
-<meta property="og:title" content="<%= t '.website_title' %>" />
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>" />
 <meta property="og:type" content="website" />
 <meta property="og:url" content="<%= t '.website_url' %>" />
 <meta property="og:image" content="http://www.nadvence-beta.com/assets/nadvence-share.png" />
-<meta property="og:description" content="<%= t '.website_description' %>" />
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('.website_description') %>" />
 <meta property="og:site_name" content="<%= t '.website_title' %>" />
 
 <!-- Google plus author -->

@@ -22,6 +22,7 @@ class Verb < ActiveRecord::Base
   validates :content, presence: true
   validates :content, uniqueness: { case_sensitive: false }
   after_create :update_html_name
+  after_create :update_research_name
   after_create :update_first_letter
   after_create :update_letters_count
   
@@ -121,7 +122,7 @@ class Verb < ActiveRecord::Base
         return "error"
       end
     else
-      return "error nil"
+      return "inconnu"
     end
   end
 
@@ -297,10 +298,6 @@ class Verb < ActiveRecord::Base
   end
 
   def self.global_update
-    self.update_group_verb
-    self.update_employ_verb
-    self.update_definition_verb
-
     self.find_each do |verb|
       puts verb.id.to_s
       verb.get_synonyms
@@ -351,7 +348,7 @@ class Verb < ActiveRecord::Base
     self.update(:html_name => new_name)
   end
   
-  def update_html_name
+  def update_research_name
     res_name = self.get_research_name
     self.update(:research_name => res_name)
   end

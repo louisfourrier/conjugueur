@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
-  
-  resources :tense_entries
-
+ 
+  resources :sessions
   resources :modes
 
   resources :verbs do
@@ -11,7 +10,6 @@ Rails.application.routes.draw do
       get 'autocomplete'
     end
   end
-
   
     root to: 'home#main'
     get 'home/main'

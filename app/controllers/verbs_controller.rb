@@ -1,5 +1,6 @@
 class VerbsController < ApplicationController
   before_action :set_verb, only: [:show, :edit, :update, :destroy]
+  before_filter :no_access, only:[:edit, :new, :create, :destroy]
 
   # GET /verbs
   # GET /verbs.json
