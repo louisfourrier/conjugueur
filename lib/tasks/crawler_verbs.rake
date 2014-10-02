@@ -92,9 +92,6 @@ task :verbs_crawler => :environment do
   
 end
 
-
-
-
 task :conjugueur_crawler => :environment do
   require 'rubygems'
   require 'nokogiri'
@@ -105,7 +102,32 @@ task :conjugueur_crawler => :environment do
   # Base Url
   BASE_URL = "http://leconjugueur.lefigaro.fr/conjugaison/verbe/"
 
-  Verb.where("verbs.group = ?", "error nil").each do |verb|
+  Verb.find_each do |verb|
+    begin
+    puts "STARTING crawling of " + verb.html_name.to_s + " id : " + verb.id.to_s
+    verb_link = BASE_URL.to_s + verb.html_name.to_s + ".html"
+    main_page = Nokogiri::HTML(open(verb_link.to_s))
+    verb_page = main_page.css('#Top')
+    sanitize_html = verb_page.to_html.encode!('UTF-8', :undef => :replace, :invalid => :replace, :replace => "") 
+    verb.update(:page_content => sanitize_html)
+    rescue
+    end
+  end
+  
+end
+
+
+task :conjugueur_crawler_bis => :environment do
+  require 'rubygems'
+  require 'nokogiri'
+  require 'open-uri'
+  require 'uri'
+
+  HEADERS_HASH = {"User-Agent" => "Ruby/#{RUBY_VERSION}", "read_timeout" => "30"}
+  # Base Url
+  BASE_URL = "http://leconjugueur.lefigaro.fr/conjugaison/verbe/"
+
+  Verb.where('page_content IS NULL').find_each do |verb|
     begin
     puts "STARTING crawling of " + verb.html_name.to_s + " id : " + verb.id.to_s
     verb_link = BASE_URL.to_s + verb.html_name.to_s + ".html"
