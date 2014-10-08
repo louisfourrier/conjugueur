@@ -35,6 +35,7 @@ class Verb < ActiveRecord::Base
 
   extend FriendlyId
   friendly_id :content, use: :slugged
+  
   def self.filter(attributes)
     attributes.inject(self) do |scope, (key, value)|
     #return scope.scoped if value.blank?

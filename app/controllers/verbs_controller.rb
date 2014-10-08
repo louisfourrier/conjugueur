@@ -39,7 +39,7 @@ class VerbsController < ApplicationController
     if !@verb.nil?
       redirect_to @verb
     else
-      @verbs = Verb.where("content ILIKE ?", @name)
+      @verbs = Verb.similar_verbs(@name)
     end
   end
 

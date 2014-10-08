@@ -40,7 +40,8 @@ gem 'will_paginate-bootstrap'
 gem 'friendly_id', '~> 5.0.0'
 # For sitemap generation
 gem 'sitemap_generator'
-
+#NewRelic
+gem 'newrelic_rpm'
 
 
 ## FOR PARSING

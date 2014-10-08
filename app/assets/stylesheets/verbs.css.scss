@@ -45,13 +45,18 @@
 
 
 .search-input{
-  font-size:17px;
+  font-size:20px;
+  height:45px;
   padding: 8px;
   font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
 }
 
+.search-container{
+  vertical-align:middle !important;
+}
+
 .nav-search-input{
-  font-size:16px;
+  font-size:17px;
   padding: 5px;
   font-family: 'Trebuchet MS', Tahoma, Verdana, Arial, sans-serif;
 }

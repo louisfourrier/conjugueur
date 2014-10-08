@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'errors/show'
+
   scope "(:locale)", locale: /#{I18n.available_locales.join("|")}/ do
  
   resources :sessions
@@ -13,6 +15,7 @@ Rails.application.routes.draw do
   
     root to: 'home#main'
     get 'home/main'
+    get ':status', to: 'errors#show', constraints: {status: /\d{3}/ }
   end
 
   # The priority is based upon order of creation: first created -> highest priority.
