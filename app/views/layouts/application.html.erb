@@ -8,18 +8,20 @@
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
-		
+
 		<%= render partial: 'layouts/navbar' %>
-		
+
 		<div class="container-fluid main-container">
 			<div class="row">
 				<div class="col-md-12">
-					
+					<!-- Return to Top -->
+					<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
+
 					<%= yield %>
 				</div>
 			</div>
 		</div>
-		
+
 		<div class="modal fade" id="layout-modal">
 			<div class="modal-dialog">
 				<div class="modal-content">
@@ -38,10 +40,31 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<% render partial: 'layouts/footer' %>
-		
+
 		<%= render partial: 'layouts/end_scripts' %>
-		
+
+		<script>
+			$(function() {
+
+				$(window).scroll(function() {
+					if ($(this).scrollTop() >= 50) {// If page is scrolled more than 50px
+						$('#return-to-top').fadeIn(200);
+						// Fade in the arrow
+					} else {
+						$('#return-to-top').fadeOut(200);
+						// Else fade out the arrow
+					}
+				});
+				$('#return-to-top').click(function() {// When arrow is clicked
+					$('body,html').animate({
+						scrollTop : 0 // Scroll to top of body
+					}, 500);
+				});
+
+			});
+		</script>
+
 	</body>
 </html>

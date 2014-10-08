@@ -30,7 +30,7 @@ true
 
 			<p>
 				<strong>Auxiliaire de conjugaison:</strong>
-				<%= @verb.auxiliary %>
+				<%= strip_tags(@verb.auxiliary).html_safe %>
 			</p>
 
 			
