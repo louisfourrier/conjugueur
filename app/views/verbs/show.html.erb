@@ -30,7 +30,12 @@ true
 
 			<p>
 				<strong>Auxiliaire de conjugaison:</strong>
+				<% if @verb.auxiliary.nil? or @verb.auxiliary.empty? %>
+					
+				<% else%>
+				
 				<%= strip_tags(@verb.auxiliary).html_safe %>
+				<%end %>
 			</p>
 
 			
@@ -111,7 +116,9 @@ true
 		<ul class="tense-entries-li">
 			<% @verb.tense_entries.where('tense_id = ?' , tense.id).order(:order).each do |entry| %>
 			<li>
+				
 				<%= entry.total_content.html_safe%>
+			
 			</li>
 			<% end %>
 		</ul>

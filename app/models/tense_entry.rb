@@ -23,7 +23,7 @@ class TenseEntry < ActiveRecord::Base
   
   
   def self.destroy_not_ordered
-    self.self.where('order is NULL').destroy_all
+    self.where('order is NULL').destroy_all
   end
   
   
