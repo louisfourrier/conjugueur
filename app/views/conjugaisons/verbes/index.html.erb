@@ -22,7 +22,7 @@ true
 
 <div class="container">
 <div id="insert-verbs">
-	<%= render(partial: 'verbs/verbs_list', locals:{verbs: @verbs})%>
+	<%= render(partial: 'conjugaisons/verbes/verbs_list', locals:{verbs: @verbs})%>
 </div>
 
 </div>
@@ -34,7 +34,7 @@ true
 			$("#insert-verbs").html('<div class="text-center"><%= j image_tag "loading-glasses.gif"%></div>');
 			var letters = $("#firstletters").val();
 			$.ajax({
-				url : "/verbs.js",
+				url : "/conjugaisons/verbes.js",
 				type : "GET",
 				dataType: "script",
 				data : {

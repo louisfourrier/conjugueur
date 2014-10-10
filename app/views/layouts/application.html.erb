@@ -5,6 +5,7 @@
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
 		<%= render partial: 'layouts/meta_social_analytics' %>
+		<%= favicon_link_tag 'favicon.ico' %>
 		<%= csrf_meta_tags %>
 	</head>
 	<body>
@@ -41,7 +42,7 @@
 			</div>
 		</div>
 
-		<% render partial: 'layouts/footer' %>
+		
 
 		<%= render partial: 'layouts/end_scripts' %>
 
@@ -65,6 +66,9 @@
 
 			});
 		</script>
+		
+<!-- Go to www.addthis.com/dashboard to customize your tools -->
+<script type="text/javascript" src="//s7.addthis.com/js/300/addthis_widget.js#pubid=ra-5295de8d2a21d3cb" async data-turbolinks-eval=false></script>
 
 	</body>
 </html>

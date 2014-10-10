@@ -7,11 +7,11 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<h1 class="navbar-h1"><a class="navbar-brand nadvence-family" href="<%= root_path %>"><i class="fa fa-dot-circle-o"></i>  <%= content_for?(:project_name) ? yield(:project_name) : I18n.t('.website_title') %></a><h1>
+			<a class="navbar-brand nadvence-family navbar-h1" href="<%= root_path %>"><i class="fa fa-dot-circle-o"></i>  <%= content_for?(:project_name) ? yield(:project_name) : I18n.t('.website_title') %></a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-            <li><%= link_to "Liste des verbes", verbs_path, :class => "nadvence-family" %></li>
+            <li><%= link_to "Liste des verbes", conjugaisons_verbes_path, :class => "nadvence-family" %></li>
             
           
             
@@ -19,7 +19,7 @@
           </ul>
           
           <% if content_for?(:nav_conjug) %>
-          <%= form_tag({controller: "verbs", action: "search"}, method: "get", class: "navbar-form navbar-left") do %>
+          <%= form_tag({controller: "conjugaisons/verbes", action: "search"}, method: "get", class: "navbar-form navbar-left") do %>
          
           
 		<div class="form-group">
@@ -60,7 +60,7 @@
 
 		$(".typeahead-nav").autocomplete({
 			limit : 15,
-			source : '/verbs/autocomplete.json'
+			source : '/conjugaisons/verbes/autocomplete.json'
 		});
 	}); 
 </script>

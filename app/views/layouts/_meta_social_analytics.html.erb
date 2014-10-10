@@ -1,7 +1,7 @@
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>">
 <meta itemprop="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('.website_description') %>">
-<meta name="keywords" lang="fr" content="<%= I18n.t 'website_keywords', locale: :fr %>">
+<meta name="keywords" lang="fr" content="<%= content_for?(:keywords) ? yield(:keywords) : I18n.t('.website_keywords') %>">
 <meta name="keywords" lang="en" content="<%= I18n.t 'website_keywords', locale: :en %>">
 <meta itemprop="image" content="http://www.nadvence-beta.com/assets/nadvence-share.png">
 

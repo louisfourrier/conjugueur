@@ -89,3 +89,6 @@ heroku ps --app powerful-ravine-1609
 Kill a process
 heroku ps:stop scheduler.8601 --app powerful-ravine-1609
 
+For sitemap
+rake sitemap:refresh:no_ping
+

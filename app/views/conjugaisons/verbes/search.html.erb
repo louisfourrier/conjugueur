@@ -6,7 +6,7 @@
 
 		<h1 class="page-header text-center first-title box-big-title">Conjugaison des verbes francais</h1>
 		<br />
-		<%= render partial: "search_form", locals: {verb: @name} %>
+		<%= render partial: "conjugaisons/verbes/search_form", locals: {verb: @name} %>
 
 		<hr />
 
@@ -26,7 +26,7 @@
 				<h3>Verbes proches</h3>
 				
 				<% @verbs.each do |verb| %>
-				<%= link_to verb.content.to_s, verb%>
+				<%= link_to verb.content.to_s, conjugaisons_verbe_path(verb)%>
 				<% end %>
 				
 				<% if @verbs.empty?%>
@@ -35,7 +35,7 @@
 			</div>
 			<br />
 			<div class="box-title">
-				<%= link_to "Liste des verbes Francais", verbs_path, :class => ""%>
+				<%= link_to "Liste des verbes Francais", conjugaisons_verbes_path, :class => ""%>
 			</div>
 		</div>
 	</div>

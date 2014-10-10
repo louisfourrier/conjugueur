@@ -5,11 +5,13 @@ Rails.application.routes.draw do
  
   resources :sessions
   resources :modes
-
-  resources :verbs do
-    collection do
-      get 'search'
-      get 'autocomplete'
+  
+  namespace :conjugaisons do 
+    resources :verbes do
+      collection do
+        get 'search'
+        get 'autocomplete'
+      end
     end
   end
   

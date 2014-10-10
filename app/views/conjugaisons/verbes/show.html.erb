@@ -1,9 +1,9 @@
 <% content_for(:nav_conjug) do %>
 true
 <% end %>
-<% provide(:title, "Conjugaison du verbe : " + @verb.content.to_s) %>
-<% provide(:description, "Toutes les conjugaisons et les informations sur le verbe " + @verb.content.to_s) %>
-
+<% provide(:title, "La conjugaison du verbe " + @verb.content.to_s + " - conjuguer le verbe " + @verb.content.to_s) %>
+<% provide(:description, "La conjugaison du verbe " +  @verb.content.to_s  + " sa définition et ses synonymes. Conjugaison du verbe mourir à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif." ) %>
+<% provide(:keywords, "conjugaison, conjuguer, verbe, francaise, francais, conjuguer," + @verb.content.to_s + ", synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
 
 <p id="notice">
 	<%= notice %>
@@ -58,7 +58,7 @@ true
 
 			<% @verb.synonyms.each do |verb|%>
 
-			<%= link_to verb.content.to_s, verb %>
+			<%= link_to verb.content.to_s, conjugaisons_verbe_path(verb) %>
 
 			<% end%>
 
@@ -75,7 +75,7 @@ true
 			</div>
 
 			<% @verb.similar_verbs.each do |verb| %>
-			<%= link_to verb.content.to_s, verb %>
+			<%= link_to verb.content.to_s, conjugaisons_verbe_path(verb) %>
 			<% end %>
 			<% if @verb.similar_verbs.empty?%>
 
@@ -87,7 +87,7 @@ true
 	<div class="col-sm-9 col-sm-offset-3">
 	<h1 class="page-header text-center nadvence-box box-big-title">Conjugaison du verbe <span class="color-nadvence"><%= @verb.content %></span></h1>
 		
-		<div style="text-align: right;">
+		<div class="text-right hidden-xs">
 		<small class="small-text">
 		<% Mode.order(:order).each do |mode|%>
 		<em><%= link_to "#" + mode.name, ("#" + mode.name).to_s%></em>
