@@ -3,7 +3,8 @@ true
 <% end %>
 <% provide(:title, "La conjugaison du verbe " + @verb.content.to_s + " - conjuguer le verbe " + @verb.content.to_s) %>
 <% provide(:description, "La conjugaison du verbe " +  @verb.content.to_s  + " sa définition et ses synonymes. Conjugaison du verbe mourir à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif." ) %>
-<% provide(:keywords, "conjugaison, conjuguer, verbe, francaise, francais, conjuguer," + @verb.content.to_s + ", synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
+<% provide(:keywords_french, "conjugaison, conjuguer, verbe, francaise, francais, conjuguer," + @verb.content.to_s + ", synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
+<% provide(:keywords_english, "conjugation, conjuguer, verb, french, conjugate," + @verb.content.to_s + ", synonym, synonyms, verbs, indicative, subjunctive, imperative, infinitive, conditional, participle, present, imperfect, past perfect, future")%>
 
 <p id="notice">
 	<%= notice %>
@@ -85,8 +86,9 @@ true
 		</div>
 	</div>
 	<div class="col-sm-9 col-sm-offset-3">
-	<h1 class="page-header text-center nadvence-box box-big-title">Conjugaison du verbe <span class="color-nadvence"><%= @verb.content %></span></h1>
+	<h1 class="page-header text-center nadvence-box box-big-title">Conjugaison du verbe <strong class="color-nadvence"><%= @verb.content %></strong></h1>
 		
+		<% if !@verb.tense_entries.empty? %>
 		<div class="text-right hidden-xs">
 		<small class="small-text">
 		<% Mode.order(:order).each do |mode|%>
@@ -108,10 +110,10 @@ true
 
 		<% mode.tenses.each do |tense|%>
 		<% if mode.tenses_count <= 2 %>
-		<div class="col-lg-6 col-md-6 col-sm-6">
+			<div class="col-lg-6 col-md-6 col-sm-6">
 		<% else %>
-		<div class="col-lg-3 col-md-4 col-sm-6">
-			<% end %>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+		<% end %>
 		<h4 class="page-header tense-title"><%= tense.name %></h4>
 		<ul class="tense-entries-li">
 			<% @verb.tense_entries.where('tense_id = ?' , tense.id).order(:order).each do |entry| %>
@@ -127,7 +129,10 @@ true
 		</div>
 		<% end %>
 
-
+		<% else %>
+		
+		<div class="text-center alert alert-warning"><h3>En cours de traitement</h3></div>
+		<% end %>
 		
 	</div>
 	

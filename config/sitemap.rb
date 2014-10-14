@@ -1,7 +1,7 @@
 require 'rubygems'
 require 'sitemap_generator'
 
-SitemapGenerator::Sitemap.default_host = 'http://example.com'
+SitemapGenerator::Sitemap.default_host = 'http://www.les-conjugaisons.com'
 # For the compression of the sitemap. Disable because several servers do not support gzip
 SitemapGenerator::Sitemap.compress = false
 SitemapGenerator::Sitemap.create do

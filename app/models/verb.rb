@@ -121,7 +121,24 @@ class Verb < ActiveRecord::Base
       return "inconnu"
     end
   end
-
+  
+  def correct_group
+    if self.group == "inconnu" || self.group.nil? || self.group == "error nil"
+      string = self.content
+      if string.last(2) == "er"
+        self.update_column(:group, "1")
+      else
+        self.update_column(:group, "Non defini")
+      end
+    end
+  end
+  
+  def self.correct_group_verb
+    self.find_each do |verb|
+      verb.correct_group
+    end
+  end
+  
   def self.update_group_verb
     self.find_each do |verb|
       puts verb.id.to_s

@@ -20,10 +20,11 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  website_url: ""
-  website_title: "CONJUGATION"
-  website_description: ""
-  website_keywords: ""
+  website_url: "http://www.les-congugaisons.com"
+  website_name: "Conjugations"
+  website_title: "Conjugation of all the french verbs - Conjugate french verbs"
+  website_description: "All the french verbs, their definition and their synonyms. Conjugation of verbs, indicative, subjunctive, conditional, imperative, present, past, present perfect, imperfect"
+  website_keywords: "conjugation, conjuguer, verb, french, conjugate, synonym, synonyms, verbs, indicative, subjunctive, imperative, infinitive, conditional, participle, present, imperfect, past perfect, future"
   modal_close: "Close"
   are_you_sure: "Are you sure ?"
   date:

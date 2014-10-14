@@ -1,3 +1,10 @@
+
+<% provide(:description, "La conjugaison du verbe sa définition et ses synonymes. Conjugaison du verbe mourir à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif." ) %>
+
+<% provide(:keywords_french, "conjugaison, conjuguer, verbe, francaise, francais, conjuguer, synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
+<% provide(:keywords_english, "conjugation, conjuguer, verb, french, conjugate, synonym, synonyms, verbs, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
+
+
 <div class="row">
 	<div class="col-lg-6 col-md-6 col-xs-10 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 search-container">
 
@@ -29,6 +36,27 @@
 		<div class="col-md-12 nadvence-box">
 			<div class="box-title text-center">
 				<%= link_to "Liste des verbes Francais", conjugaisons_verbes_path %>
+				
+				
+			</div>
+			<div class="verbs-links"><h3>Verbes les plus courants</h3>
+				<a href="<%= conjugaisons_verbe_path(:id => "avoir") %>">avoir</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "voir") %>">voir</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "plaire") %>">plaire</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "penser") %>">penser</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "souhaiter") %>">souhaiter</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "etre") %>">être</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "faire") %>">faire</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "aller") %>">aller</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "pouvoir") %>">pouvoir</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "vouloir") %>">vouloir</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "permettre") %>">permettre</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "aimer") %>">aimer</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "creer") %>">créer</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "mettre") %>">mettre</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "essayer") %>">essayer</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "appeler") %>">appeler</a> -
+				<a href="<%= conjugaisons_verbe_path(:id => "comprendre") %>">comprendre</a>
 			</div>
 		</div>
 	</div>

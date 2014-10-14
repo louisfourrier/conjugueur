@@ -1,8 +1,9 @@
 fr:
   website_url: ""
-  website_title: "ConjugMoi"
-  website_description: ""
-  website_keywords: ""
+  website_name: "Conjugaisons"
+  website_title: "Conjugaisons des verbes francais - Conjuguer les verbes"
+  website_description: "Toutes les conjugaisons des verbes francais. Conjuguer les verbes francais. Synonymes et définitions des verbes"
+  website_keywords: "conjugaison, conjuguer, verbe, francaise, francais, conjuguer, synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé"
   modal_close: "Fermer"
   will_paginate:
     next_label: "Suivant"

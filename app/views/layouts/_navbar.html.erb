@@ -7,7 +7,7 @@
 				<span class="icon-bar"></span>
 				<span class="icon-bar"></span>
 			</button>
-			<a class="navbar-brand nadvence-family navbar-h1" href="<%= root_path %>"><i class="fa fa-dot-circle-o"></i>  <%= content_for?(:project_name) ? yield(:project_name) : I18n.t('.website_title') %></a>
+			<a class="navbar-brand nadvence-family navbar-h1" href="<%= root_path %>"><i class="fa fa-dot-circle-o"></i>  <%= content_for?(:project_name) ? yield(:project_name) : I18n.t('.website_name') %></a>
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
@@ -38,6 +38,7 @@
 		 </ul>
           
 			<ul class="nav navbar-nav navbar-right">
+				
 				<li class="facebook-bg"><a href="https://www.facebook.com/rebbleit" target="_blank"><i class="fa fa-facebook fa-lg"></i></a></li>
 				<li class="twitter-bg"><a href="https://twitter.com/rebble_it"  target="_blank"><i class="fa fa-twitter fa-lg"></i></a></li>
 				<li class="google-plus-bg"><a href="https://plus.google.com/+RebbleIt"  target="_blank"><i class="fa fa-google-plus fa-lg"></i></a></li>
