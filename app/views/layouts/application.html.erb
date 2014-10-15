@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html itemscope itemtype="http://schema.org/WebPage">
+<html itemscope itemtype="http://schema.org/WebPage" lang="<%= params[:locale] || I18n.default_locale %>">
 	<head>
 		<%= render partial: 'layouts/meta_common' %>
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
@@ -16,7 +16,7 @@
 			<div class="row">
 				<div class="col-md-12">
 					<!-- Return to Top -->
-					<a href="javascript:" id="return-to-top"><i class="fa fa-arrow-up"></i></a>
+					<a href="javascript:" id="return-to-top" title="Return to top button"><i class="fa fa-arrow-up"></i></a>
 
 					<%= yield %>
 				</div>
