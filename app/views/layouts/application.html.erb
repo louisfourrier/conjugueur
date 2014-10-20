@@ -2,9 +2,11 @@
 <html itemscope itemtype="http://schema.org/WebPage" lang="<%= params[:locale] || I18n.default_locale %>">
 	<head>
 		<%= render partial: 'layouts/meta_common' %>
+		<%= render partial: 'layouts/meta_social_analytics' %>
+		
 		<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 		<%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-		<%= render partial: 'layouts/meta_social_analytics' %>
+		
 		<%= favicon_link_tag 'http://www.les-conjugaisons.com/favicon.ico' %>
 		<%= csrf_meta_tags %>
 	</head>
