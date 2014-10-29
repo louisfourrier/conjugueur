@@ -1,5 +1,5 @@
 <div class="text-center">
-	<h3>Nombre de verbes trouvés: <%= verbs.count %></h3>
+	<h3><%= t('.verbs_count', verbes_count: verbs.count) %></h3>
 </div>
 
 <% if !verbs.empty?%>
@@ -10,9 +10,9 @@
 	<table class="table verbs-table">
 		<thead>
 			<tr >
-				<th class="text-center">Verbe</th>
-				<th class="text-center">Groupe</th>
-				<th class="text-center">Nombre de lettres</th>
+				<th class="text-center"><%= t '.verb_name' %></th>
+				<th class="text-center"><%= t '.verb_group' %></th>
+				<th class="text-center"><%= t '.verb_letters' %></th>
 
 			</tr>
 		</thead>
@@ -31,7 +31,7 @@
 </div>
 <% else%>
 <div class="nadvence-box box-title text-center">
-	Aucun verbe trouvé
+	<%= t '.no_verb' %>
 </div>
 <% end %>
 

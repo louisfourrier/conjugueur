@@ -1,2 +1,53 @@
 fr:
-  
+  home:
+    main:
+      title: "Conjugaison des verbes français - Les conjugaisons"
+      description: "La conjugaison des verbes. Définition et synonymes de tous les verbes francais. Conjugaison des verbes à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif"
+      h1: "Conjugaison des verbes francais"
+      common_verbs: "Verbes les plus courants"
+      verbs_list: "Liste de tous les verbes français"
+  conjugaisons:
+    verbes:
+      show:
+        title: "La conjugaison du verbe %{verbe} - conjuguer le verbe %{verbe} - Conjugaisons françaises"
+        description: "La conjugaison du verbe %{verbe} définition et synonymes - Tous les temps et modes - Conjuguer le verbe %{verbe} à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif"
+        verb_information: "Informations"
+        verb_group: "Groupe"
+        verb_employ: "Emploi du verbe"
+        verb_auxiliary: "Auxiliaire de conjugaison"
+        verb_definition: "Définition"
+        verb_no_definition: "Pas de définition disponible pour ce verbe"
+        verb_synonyms: "Synonymes"
+        verb_no_synonyms: "Aucun synonyme pour ce verbe"
+        verb_close_verbs: "Verbes proches"
+        verb_no_close_verbs: "Aucun verbe proche"
+        verb_h1: "Conjugaison du verbe"
+        verb_in_loading: "En cours de traitement"
+      index:
+        title: "Liste des verbes francais"
+        description: "Liste de tous les verbes francais, recherche de verbe. Recherche des verbes français"
+        h1: "Liste des verbes francais"
+        first_letters: "Premières lettres"
+        placeholder: "Entrer les premières lettres"
+      search:
+        title: "Conjugaison des verbes français - Les conjugaisons"
+        description: "La conjugaison des verbes. Définition et synonymes de tous les verbes francais. Conjugaison des verbes à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif"
+        h1: "Conjugaison des verbes francais"
+        no_result: "Aucun résultat pour"
+        close_verbs: "Verbes proches"
+        no_verb: "Aucun verbe proche trouvé"
+        verbs_list: "Liste des verbes"
+      search_form:
+        placeholder: "Entrer le verbe que vous souhaitez conjuguer"
+        button: "Conjuguer"
+      verbs_list:
+        verbs_count: "Nombre de verbes trouvés: %{verbes_count}"
+        verb_name: "Verbe"
+        verb_group: "Groupe"
+        verb_letters: "Nombre de lettres"
+        no_verb: "Aucun verbe trouvé"
+  layouts:
+    navbar:
+      verbs_list: "Liste des verbes"
+      placeholder: "Entrer un verbe"
+      button: "Conjuguer"

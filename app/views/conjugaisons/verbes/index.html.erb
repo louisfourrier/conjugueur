@@ -1,21 +1,21 @@
 <% content_for(:nav_conjug) do %>
 true
 <% end %>
-<% provide(:title, "Liste des verbes francais") %>
-<% provide(:description, "Liste de tous les verbes francais, recherche de verbe. Recherche des verbes français") %>
+<% provide(:title, t('.title') ) %>
+<% provide(:description, t('.description') ) %>
 <% provide(:keywords_french, "conjugaison, conjuguer, définition, verbe, francaise, francais, verbes, liste, recherche")%>
 <% provide(:keywords_english, "conjugation, conjuguer, definition, verb, french, conjugate, verbs, lists, search")%>
 
 
-<h1 class="page-header text-center nadvence-box box-big-title">Liste des verbes francais</h1>
+<h1 class="page-header text-center nadvence-box box-big-title"><%= t('.h1') %></h1>
 
 <div class="row">
 	<div class="col-md-6 col-md-offset-3">
 		<div class="nadvence-box">
 			<div class="box-title">
-				Premières lettres
+				<%= t('.first_letters') %>
 			</div>
-			 <input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="Enter first letters" value="<%= params[:starting_letter] %>" />
+			 <input id="firstletters" type="text" name="firstletter" class="form-control search-input" autofocus="autofocus" placeholder="<%= t('.placeholder') %>" value="<%= params[:starting_letter] %>" />
 		</div>
 	</div>
 	

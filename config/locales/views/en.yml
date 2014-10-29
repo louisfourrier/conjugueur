@@ -1,2 +1,53 @@
 en:
-      
+  home:
+    main:
+      title: "French conjugation - Conjugation of all the french verbs"
+      description: "French conjugation. Definition and synonyms of french verbs. Learn french conjugation Conjugation indicative, subjunctive, imperative, infinitive, conditional, participle, present, imperfect, past perfect, future"
+      h1: "Conjugation of french verbs"
+      common_verbs: "Most common verbs"
+      verbs_list: "List of all the french verbs"
+  conjugaisons:
+    verbes:
+      show:
+        title: "French Conjugation of the verb %{verbe} - conjugate french verb %{verbe} - French conjugation"
+        description: "La conjugaison du verbe %{verbe} définition et synonymes - Tous les temps et modes - Conjuguer le verbe %{verbe} à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif"
+        verb_information: "Informations"
+        verb_group: "Group of the verb"
+        verb_employ: "Employ of verb"
+        verb_auxiliary: "Conjugation auxiliary"
+        verb_definition: "Definition (french)"
+        verb_no_definition: "No definition available for this verb"
+        verb_synonyms: "Synonyms"
+        verb_no_synonyms: "No synonym found for this verb"
+        verb_close_verbs: "Close verbs"
+        verb_no_close_verbs: "No close verbs found"
+        verb_h1: "Conjugation of the verb"
+        verb_in_loading: "Conjugation of this verb is in process"
+      index:
+        title: "List of french verbs - French conjugation"
+        description: "All the french verbs - Search french verbs - Conjugation of franch verbs"
+        h1: "List of all the french verbs"
+        first_letters: "First letters"
+        placeholder: "Enter first letters"
+      search:
+        title: "French conjugation - Conjugation of all the french verbs"
+        description: "French conjugation. Definition and synonyms of french verbs. Learn french conjugation Conjugation indicative, subjunctive, imperative, infinitive, conditional, participle, present, imperfect, past perfect, future"
+        h1: "Conjugation of french verbs"
+        no_result: "No result for"
+        close_verbs: "Close verbs"
+        no_verb: "No close verbs found"
+        verbs_list: "List of french verbs"
+      search_form:
+        placeholder: "Enter the verb that you want to conjugate"
+        button: "Conjugate"
+      verbs_list:
+        verbs_count: "Number of verbs found: %{verbes_count}"
+        verb_name: "Verb"
+        verb_group: "Group"
+        verb_letters: "Number of letters"
+        no_verb: "No verb found"
+  layouts:
+    navbar:
+      verbs_list: "List of all verbs"
+      placeholder: "Enter a french verb"
+      button: "Conjugate"

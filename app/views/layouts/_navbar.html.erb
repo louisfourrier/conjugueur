@@ -11,7 +11,7 @@
 		</div>
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
-            <li><%= link_to "Liste des verbes", conjugaisons_verbes_path, :class => "nadvence-family" %></li>
+            <li><%= link_to t('.verbs_list'), conjugaisons_verbes_path, :class => "nadvence-family" %></li>
             
           
             
@@ -24,12 +24,12 @@
           
 		<div class="form-group">
 			
-			<%= text_field_tag(:verb, nil, :id => "search-nav", :class => "form-control typeahead-nav nav-search-input input-lg", :autocomplete => "off", :placeholder => "Entrer un verbe", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+			<%= text_field_tag(:verb, nil, :id => "search-nav", :class => "form-control typeahead-nav nav-search-input input-lg", :autocomplete => "off", :placeholder => t('.placeholder'), :data => {'provide' => "typeahead", 'items'=>"4" }) %>
 			
 		</div>
 		
 			
-			<%= submit_tag("Conjuguer", :class => "btn btn-warning nadvence-family btn-lg") %>
+			<%= submit_tag(t('.button'), :class => "btn btn-warning nadvence-family btn-lg") %>
 		
 		<% end %>
 		 <% end %>

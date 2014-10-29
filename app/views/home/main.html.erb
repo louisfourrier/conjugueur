@@ -1,6 +1,5 @@
-
-<% provide(:description, "La conjugaison des verbes. Définition et synonymes de tous les verbes francais. Conjugaison des verbes à l'indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif." ) %>
-
+<% provide(:title, t('.title') ) %>
+<% provide(:description, t('.description') ) %>
 <% provide(:keywords_french, "conjugaison, conjuguer, définition, verbe, francaise, francais, conjuguer, synonyme, synonymes, verbes, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, passé")%>
 <% provide(:keywords_english, "conjugation, conjuguer, definition, verb, french, conjugate, synonym, synonyms, verbs, indicatif, subjonctif, impératif, infinitif, conditionnel, participe, gérondif, présent, imparfait, passé composé, passé simple, futur, futur simple, futur antérieur, plus que parfait, passé antérieur, passé")%>
 
@@ -8,7 +7,7 @@
 <div class="row">
 	<div class="col-lg-6 col-md-6 col-xs-10 col-md-offset-3 col-lg-offset-3 col-xs-offset-1 search-container">
 
-		<h1 class="page-header text-center first-title box-big-title">Conjugaison des verbes francais</h1>
+		<h1 class="page-header text-center first-title box-big-title"><%= t('.h1') %></h1>
 		<br />
 		<%= render partial: "conjugaisons/verbes/search_form" %>
 
@@ -35,11 +34,11 @@
 	
 		<div class="col-md-12 nadvence-box">
 			<div class="box-title text-center">
-				<%= link_to "Liste des verbes Francais", conjugaisons_verbes_path %>
+				<%= link_to t('.verbs_list'), conjugaisons_verbes_path %>
 				
 				
 			</div>
-			<div class="verbs-links"><h3>Verbes les plus courants</h3>
+			<div class="verbs-links"><h3><%= t('.common_verbs') %></h3>
 				<a href="<%= conjugaisons_verbe_path(:id => "avoir") %>">avoir</a> -
 				<a href="<%= conjugaisons_verbe_path(:id => "donner") %>">donner</a> -
 				<a href="<%= conjugaisons_verbe_path(:id => "reflechir") %>">réfléchir</a> -

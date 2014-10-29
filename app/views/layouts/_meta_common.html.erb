@@ -1,6 +1,50 @@
+<!-- CLASSIC META  -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title><%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %></title>
-<meta name="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('.website_description') %>">
-<link rel="alternate" hreflang="en" href="<%= root_url(:locale => 'en') %>" />
-<link rel="alternate" hreflang="fr" href="<%= root_url(:locale => 'fr') %>" />
+<title><%= content_for?(:title) ? yield(:title) : I18n.t('website_title') %></title>
+<meta name="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
+<%= favicon_link_tag 'favicon.ico' %>
+
+<!-- Language META -->
+<meta name="language" content="<%= params[:locale].to_s %>">
+<link rel="alternate" hreflang="en" href="<%= url_for(:locale => 'en') %>" />
+<link rel="alternate" hreflang="fr" href="<%= url_for(:locale => 'fr') %>" />
+
+<!-- Schema.org markup for Google+ -->
+<meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>">
+<meta name="description" itemprop="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
+<meta name="keywords" content="<%= content_for?(:keywords_french) ? yield(:keywords_french) : I18n.t('website_keywords', :locale => :fr) %>" lang="fr">
+<meta name="keywords" content="<%= content_for?(:keywords_english) ? yield(:keywords_english) : I18n.t('website_keywords', :locale => :en) %>" lang="en">
+<meta itemprop="image" content="http://www.les-conjugaisons.com/conjugaison-share.jpg">
+
+<!-- Twitter Card data -->
+<meta name="twitter:card" content="summary">
+<meta name="twitter:site" content="@rebble_it">
+<meta name="twitter:title" content="<%= content_for?(:title) ? yield(:title) : I18n.t('website_title') %>">
+<meta name="twitter:description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
+<meta name="twitter:image" content="http://www.les-conjugaisons.com/conjugaison-share.jpg">
+<meta name="twitter:url" content="<%= request.original_url %>">
+
+<!-- Open Graph data -->
+<meta property="og:title" content="<%= content_for?(:title) ? yield(:title) : I18n.t('website_title') %>" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="<%= request.original_url %>" />
+<meta property="og:image" content="http://www.les-conjugaisons.com/conjugaison-share.jpg" />
+<meta property="og:description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>" />
+<meta property="og:site_name" content="<%= I18n.t('site_name') %>" />
+
+<!-- Google plus author -->
+<link rel="publisher" href="https://plus.google.com/+Lesconjugaisonsdes-verbes-francais"/>
+
+
+<!-- Google analytics script -->
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55767537-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
