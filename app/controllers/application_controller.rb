@@ -8,10 +8,10 @@ class ApplicationController < ActionController::Base
   
   # Set the language
   def set_locale
-    if params[:locale].present?
+    if params[:locale].present? && I18n.available_locales.include?(params[:locale].to_sym)
       I18n.locale = params[:locale]
-    elsif !extract_locale_from_accept_language_header.nil?
-      I18n.locale = extract_locale_from_accept_language_header
+    elsif extract_locale = extract_locale_from_accept_language_header
+      I18n.locale = extract_locale
     else
       # Default locale is set in the application.rb file (set to french)
       I18n.locale = I18n.default_locale
@@ -21,7 +21,12 @@ class ApplicationController < ActionController::Base
   # Get language from browser
   def extract_locale_from_accept_language_header
     begin
-      request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+      lang = request.env['HTTP_ACCEPT_LANGUAGE'].scan(/^[a-z]{2}/).first
+     if I18n.available_locales.include?(lang.to_sym)
+       return lang
+     else
+       return nil
+     end
     rescue
       return nil
     end

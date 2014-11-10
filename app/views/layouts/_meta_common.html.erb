@@ -2,7 +2,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title><%= content_for?(:title) ? yield(:title) : I18n.t('website_title') %></title>
-<meta name="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
+<meta name="description" itemprop="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
 <%= favicon_link_tag 'favicon.ico' %>
 
 <!-- Language META -->
@@ -12,7 +12,6 @@
 
 <!-- Schema.org markup for Google+ -->
 <meta itemprop="name" content="<%= content_for?(:title) ? yield(:title) : I18n.t('.website_title') %>">
-<meta name="description" itemprop="description" content="<%= content_for?(:description) ? yield(:description) : I18n.t('website_description') %>">
 <meta name="keywords" content="<%= content_for?(:keywords_french) ? yield(:keywords_french) : I18n.t('website_keywords', :locale => :fr) %>" lang="fr">
 <meta name="keywords" content="<%= content_for?(:keywords_english) ? yield(:keywords_english) : I18n.t('website_keywords', :locale => :en) %>" lang="en">
 <meta itemprop="image" content="http://www.les-conjugaisons.com/conjugaison-share.jpg">

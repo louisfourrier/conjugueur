@@ -1,9 +1,9 @@
 <%= form_tag({controller: "conjugaisons/verbes", action: "search"}, method: "get", class: "form") do %>
 <div class="col-md-12">
 	<% if local_assigns.has_key? :verb%>
-	<%= text_field_tag(:verb, verb, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :title => "Verbe", :placeholder => t('.placeholder'), :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+	<%= text_field_tag(:verb, verb, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :title => "Verbe", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
 	<% else %>
-	<%= text_field_tag(:verb, nil, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :title => "Verbe", :placeholder => t('.placeholder'), :data => {'provide' => "typeahead", 'items'=>"4" }) %>
+	<%= text_field_tag(:verb, nil, :id => "search", :class => "form-control typeahead search-input", :autocomplete => "off", :autofocus=>"autofocus", :title => "Verbe", :data => {'provide' => "typeahead", 'items'=>"4" }) %>
 	<% end %>
 </div>
 <div class="col-md-12 text-center">

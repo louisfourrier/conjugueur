@@ -6,6 +6,7 @@ fr:
       h1: "Conjugaison des verbes francais"
       common_verbs: "Verbes les plus courants"
       verbs_list: "Liste de tous les verbes français"
+      partners_list: "Sites partenaires"
   conjugaisons:
     verbes:
       show:
@@ -38,7 +39,7 @@ fr:
         no_verb: "Aucun verbe proche trouvé"
         verbs_list: "Liste des verbes"
       search_form:
-        placeholder: "Entrer le verbe que vous souhaitez conjuguer"
+        placeholder: "Verbe à conjuguer"
         button: "Conjuguer"
       verbs_list:
         verbs_count: "Nombre de verbes trouvés: %{verbes_count}"

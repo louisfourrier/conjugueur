@@ -11,7 +11,59 @@ true
 </p>
 
 <div class="row">
-	<div class="col-sm-3 sidebar">
+	
+	<div class="col-sm-9 col-sm-offset-3">
+	<h1 class="page-header text-center nadvence-box box-big-title"><%= t('.verb_h1') %> <strong class="color-nadvence"><%= @verb.content %></strong></h1>
+		
+		<% if !@verb.tense_entries.empty? %>
+		<div class="text-right hidden-xs">
+		<small class="small-text">
+		<% Mode.order(:order).each do |mode|%>
+		<em><%= link_to "#" + mode.name, ("#" + mode.name).to_s%></em>
+		<% end %>
+		</small>
+		</div>
+		
+		<% Mode.order(:order).each do |mode|%>
+		
+			<% if mode.tenses_count <= 2 %>
+			<div class="col-lg-6 col-md-6 col-sm-12">
+			<% else %>
+			<div class="col-lg-12 col-md-12 col-sm-12">
+			<% end %>
+		
+		<span class="anchor" id="<%= mode.name %>"></span>
+		<h2 class="text-center box-title color-nadvence page-header mode-title nadvence-box"><%= mode.name%></h2>
+
+		<% mode.tenses.each do |tense|%>
+		<% if mode.tenses_count <= 2 %>
+			<div class="col-lg-6 col-md-6 col-sm-6">
+		<% else %>
+			<div class="col-lg-3 col-md-4 col-sm-6">
+		<% end %>
+		<h4 class="page-header tense-title"><%= tense.name %></h4>
+		<ul class="tense-entries-li">
+			<% @verb.tense_entries.where('tense_id = ?' , tense.id).order(:order).each do |entry| %>
+			<li>
+				
+				<%= entry.total_content.html_safe%>
+			
+			</li>
+			<% end %>
+		</ul>
+		</div>
+		<% end %>
+		</div>
+		<% end %>
+
+		<% else %>
+		
+		<div class="text-center alert alert-warning"><h3><%= t('.verb_in_loading') %></h3></div>
+		<% end %>
+		
+	</div>
+	
+	<div class="col-sm-3 sidebar col-sm-push-9">
 		<div class="nadvence-box col-md-12">
 			<div class="box-title">
 				<%= t('.verb_information') %>
@@ -81,56 +133,6 @@ true
 
 			<% end %>
 		</div>
-	</div>
-	<div class="col-sm-9 col-sm-offset-3">
-	<h1 class="page-header text-center nadvence-box box-big-title"><%= t('.verb_h1') %> <strong class="color-nadvence"><%= @verb.content %></strong></h1>
-		
-		<% if !@verb.tense_entries.empty? %>
-		<div class="text-right hidden-xs">
-		<small class="small-text">
-		<% Mode.order(:order).each do |mode|%>
-		<em><%= link_to "#" + mode.name, ("#" + mode.name).to_s%></em>
-		<% end %>
-		</small>
-		</div>
-		
-		<% Mode.order(:order).each do |mode|%>
-		
-			<% if mode.tenses_count <= 2 %>
-			<div class="col-lg-6 col-md-6 col-sm-12">
-			<% else %>
-			<div class="col-lg-12 col-md-12 col-sm-12">
-			<% end %>
-		
-		<span class="anchor" id="<%= mode.name %>"></span>
-		<h2 class="text-center box-title color-nadvence page-header mode-title nadvence-box"><%= mode.name%></h2>
-
-		<% mode.tenses.each do |tense|%>
-		<% if mode.tenses_count <= 2 %>
-			<div class="col-lg-6 col-md-6 col-sm-6">
-		<% else %>
-			<div class="col-lg-3 col-md-4 col-sm-6">
-		<% end %>
-		<h4 class="page-header tense-title"><%= tense.name %></h4>
-		<ul class="tense-entries-li">
-			<% @verb.tense_entries.where('tense_id = ?' , tense.id).order(:order).each do |entry| %>
-			<li>
-				
-				<%= entry.total_content.html_safe%>
-			
-			</li>
-			<% end %>
-		</ul>
-		</div>
-		<% end %>
-		</div>
-		<% end %>
-
-		<% else %>
-		
-		<div class="text-center alert alert-warning"><h3><%= t('.verb_in_loading') %></h3></div>
-		<% end %>
-		
 	</div>
 	
 </div>

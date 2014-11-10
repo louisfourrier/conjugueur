@@ -6,6 +6,7 @@ en:
       h1: "Conjugation of french verbs"
       common_verbs: "Most common verbs"
       verbs_list: "List of all the french verbs"
+      partners_list: "Partners Websites"
   conjugaisons:
     verbes:
       show:
@@ -38,7 +39,7 @@ en:
         no_verb: "No close verbs found"
         verbs_list: "List of french verbs"
       search_form:
-        placeholder: "Enter the verb that you want to conjugate"
+        placeholder: "Verb to conjugate (french)"
         button: "Conjugate"
       verbs_list:
         verbs_count: "Number of verbs found: %{verbes_count}"
