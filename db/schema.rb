@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141001093031) do
+ActiveRecord::Schema.define(version: 20141124091932) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -25,6 +25,8 @@ ActiveRecord::Schema.define(version: 20141001093031) do
     t.integer  "tenses_count", default: 0
     t.integer  "order",        default: 0
   end
+
+  add_index "modes", ["order"], name: "index_modes_on_order", using: :btree
 
   create_table "synonymings", force: true do |t|
     t.integer  "verb_id"
@@ -47,6 +49,7 @@ ActiveRecord::Schema.define(version: 20141001093031) do
     t.datetime "updated_at"
   end
 
+  add_index "tense_entries", ["order"], name: "index_tense_entries_on_order", using: :btree
   add_index "tense_entries", ["tense_id"], name: "index_tense_entries_on_tense_id", using: :btree
   add_index "tense_entries", ["verb_id"], name: "index_tense_entries_on_verb_id", using: :btree
 

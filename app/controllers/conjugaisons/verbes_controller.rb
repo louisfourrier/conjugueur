@@ -46,6 +46,7 @@ module Conjugaisons
     # GET /verbs/1
     # GET /verbs/1.json
     def show
+      
     end
 
     # GET /verbs/new
@@ -101,7 +102,7 @@ module Conjugaisons
 
     # Use callbacks to share common setup or constraints between actions.
     def set_verb
-      @verb = Verb.friendly.find(params[:id])
+      @verb = Verb.includes(:tense_entries).friendly.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

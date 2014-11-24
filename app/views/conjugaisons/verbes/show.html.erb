@@ -24,7 +24,7 @@ true
 		</small>
 		</div>
 		
-		<% Mode.order(:order).each do |mode|%>
+		<% Mode.order(:order).includes(:tenses).each do |mode|%>
 		
 			<% if mode.tenses_count <= 2 %>
 			<div class="col-lg-6 col-md-6 col-sm-12">

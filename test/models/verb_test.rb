@@ -15,6 +15,7 @@
 #  html_name     :string(255)
 #  letters_count :integer          default(0)
 #  research_name :text
+#  slug          :string(255)
 #
 
 require 'test_helper'
