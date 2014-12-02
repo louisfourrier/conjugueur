@@ -13,9 +13,12 @@ Rails.application.routes.draw do
         end
       end
     end
-
+    
+    get 'home/recherche_verbe'
+    
     root to: 'home#main'
     get 'home/main'
+    
     get ':status', to: 'errors#show', constraints: {status: /\d{3}/ }
   end
 

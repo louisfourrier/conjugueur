@@ -7,6 +7,17 @@ en:
       common_verbs: "Most common verbs"
       verbs_list: "List of all the french verbs"
       partners_list: "Partners Websites"
+      search_verb: "Search verbs from conjugated forms"
+    recherche_verbe:
+      title: "Search a verb from a word - Find the infinitive of a conjugated verb"
+      description: "Search which verbs is this word. Find the verb that is conjugated"
+      h1: "Search a verb from its conjugated forms"
+      explanation: "From a word, we will try to find of the verbs that can corresponds through their conjugated forms to your search"
+      button: "Search infinitive"
+      result: "Verbs that might be conjugated"
+      no_verb: "No close verbs found"
+      verbs_list: "List of french verbs"
+      
   conjugaisons:
     verbes:
       show:

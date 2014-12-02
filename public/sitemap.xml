@@ -7,11 +7,19 @@
 		<priority>1.0</priority>
 	</url>
 	<url>
-		<loc>http://www.les-conjugaisons.com/verbes</loc>
+		<loc>http://www.les-conjugaisons.com/fr/conjugaisons/verbes</loc>
+		<lastmod>2014-10-14T14:02:12+02:00</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.8</priority>
+	</url>
+	
+	<url>
+		<loc>http://www.les-conjugaisons.com/fr/home/recherche_verbe</loc>
 		<lastmod>2014-10-14T14:02:12+02:00</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
+	
 	<url>
 		<loc>http://www.les-conjugaisons.com/conjugaisons/verbes/abaisser</loc>
 		<lastmod>2014-10-01T16:02:38+00:00</lastmod>

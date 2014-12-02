@@ -7,6 +7,16 @@ fr:
       common_verbs: "Verbes les plus courants"
       verbs_list: "Liste de tous les verbes français"
       partners_list: "Sites partenaires"
+      search_verb: "Recherche de verbe - Quel verbe est conjugué ?"
+    recherche_verbe:
+      title: "Trouver quel verbe est conjugué"
+      description: "Page permettant de trouver quel verbe est conjugué. Entrez le mot et découvrez quel verbe est conjugué"
+      h1: "Trouvez le verbe conjugué "
+      explanation: "Permet de rechercher un verbe pouvant correspondre à votre recherche à travers ses formes conjuguées. Par exemple si vous recherchez 'cassera' le résultat sera le verbe casser. "
+      button: "Recherche du verbe"
+      result: "Verbes pouvant correspondre à la recherche"
+      no_verb: "Aucun verbe trouvé"
+      verbs_list: "Liste des verbes"
   conjugaisons:
     verbes:
       show:
