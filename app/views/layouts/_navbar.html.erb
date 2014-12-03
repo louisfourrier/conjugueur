@@ -12,8 +12,12 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav">
             <li><%= link_to t('.verbs_list'), conjugaisons_verbes_path, :class => "nadvence-family" %></li>
-            
+           
+           <% if !content_for?(:nav_conjug) %>
+          <li><%= link_to t('.verb_search'), home_recherche_verbe_path, :class => "nadvence-family" %></li>
           
+           <li><%= link_to t('.exercices'), new_exercice_path, :class => "nadvence-family" %></li>
+          	<% end %>
             
             
           </ul>
@@ -32,6 +36,8 @@
 			<%= submit_tag(t('.button'), :class => "btn btn-warning nadvence-family btn-lg") %>
 		
 		<% end %>
+		
+		
 		 <% end %>
 		 
           

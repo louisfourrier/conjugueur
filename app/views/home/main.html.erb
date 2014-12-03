@@ -32,12 +32,27 @@
 		<% end %>
 		
 	
-		<div class="col-md-12 nadvence-box">
+		<div class="col-md-6">
+			<div class="nadvence-box">
 			<div class="box-title text-center">
 				<%= link_to t('.verbs_list'), conjugaisons_verbes_path %>
 				
 				
 			</div>
+			</div>
+		</div>
+		
+		<div class="col-md-6">
+			<div class="nadvence-box">
+			<div class="box-title text-center">
+				<%= link_to t('.search_verb'), home_recherche_verbe_path %>
+				
+				
+			</div>
+			</div>
+		</div>
+			
+			<div class="col-md-12 nadvence-box">
 			<div class="verbs-links"><h3><%= t('.common_verbs') %></h3>
 				<a href="<%= conjugaisons_verbe_path(:id => "avoir") %>">avoir</a> -
 				<a href="<%= conjugaisons_verbe_path(:id => "donner") %>">donner</a> -
@@ -84,12 +99,7 @@
 			</div>
 		</div>
 		
-		<div class="col-md-12 nadvence-box">
-			<div class="box-title text-center">
-					<%= link_to t('.search_verb'), home_recherche_verbe_path %>
-				
-			</div>
-			</div>
+		
 		
 		<div class="col-md-12 nadvence-box">
 			<div class="box-title text-center">
@@ -97,7 +107,7 @@
 				
 				
 			</div>
-			<a href="http://www.poesie-et-poeme.fr">Poésies francaises</a>
+			<a href="http://www.poesie-et-poeme.fr">Poésies francaises</a> - 
 			<a href="http://www.combien-de-calories.com">Combien de calories</a>
 			</div>
 	</div>

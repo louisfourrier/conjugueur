@@ -1,7 +1,12 @@
 Rails.application.routes.draw do
+
+
   scope "(:locale)" do
     get 'errors/show'
-
+    
+    
+    resources :exercices
+      
     resources :sessions
     resources :modes
 

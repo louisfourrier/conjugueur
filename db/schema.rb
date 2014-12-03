@@ -11,10 +11,26 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20141202145718) do
+ActiveRecord::Schema.define(version: 20141202164835) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "exercices", force: true do |t|
+    t.integer  "question_number"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "exercicings", force: true do |t|
+    t.integer  "exercice_id"
+    t.integer  "tense_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "exercicings", ["exercice_id"], name: "index_exercicings_on_exercice_id", using: :btree
+  add_index "exercicings", ["tense_id"], name: "index_exercicings_on_tense_id", using: :btree
 
   create_table "modes", force: true do |t|
     t.text     "name"
@@ -27,6 +43,17 @@ ActiveRecord::Schema.define(version: 20141202145718) do
   end
 
   add_index "modes", ["order"], name: "index_modes_on_order", using: :btree
+
+  create_table "questions", force: true do |t|
+    t.integer  "exercice_id"
+    t.integer  "tense_entry_id"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "questions", ["exercice_id"], name: "index_questions_on_exercice_id", using: :btree
+  add_index "questions", ["tense_entry_id"], name: "index_questions_on_tense_entry_id", using: :btree
 
   create_table "synonymings", force: true do |t|
     t.integer  "verb_id"

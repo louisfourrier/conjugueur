@@ -61,5 +61,6 @@ en:
   layouts:
     navbar:
       verbs_list: "List of all verbs"
+      verb_search: "Search verb from word"
       placeholder: "Enter a french verb"
       button: "Conjugate"

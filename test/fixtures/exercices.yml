@@ -1,0 +1,17 @@
+# == Schema Information
+#
+# Table name: exercices
+#
+#  id              :integer          not null, primary key
+#  question_number :integer
+#  created_at      :datetime
+#  updated_at      :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  question_number: 1
+
+two:
+  question_number: 1

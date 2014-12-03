@@ -7,7 +7,7 @@ fr:
       common_verbs: "Verbes les plus courants"
       verbs_list: "Liste de tous les verbes français"
       partners_list: "Sites partenaires"
-      search_verb: "Recherche de verbe - Quel verbe est conjugué ?"
+      search_verb: "Recherche par formes conjuguées - Quel verbe est conjugué ?"
     recherche_verbe:
       title: "Trouver quel verbe est conjugué"
       description: "Page permettant de trouver quel verbe est conjugué. Entrez le mot et découvrez quel verbe est conjugué"
@@ -60,5 +60,6 @@ fr:
   layouts:
     navbar:
       verbs_list: "Liste des verbes"
+      verb_search: "Recherche de verbe"
       placeholder: "Entrer un verbe"
       button: "Conjuguer"

@@ -1,0 +1,23 @@
+# == Schema Information
+#
+# Table name: questions
+#
+#  id             :integer          not null, primary key
+#  exercice_id    :integer
+#  tense_entry_id :integer
+#  answer         :string(255)
+#  created_at     :datetime
+#  updated_at     :datetime
+#
+
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  exercice_id: 
+  tense_entry_id: 
+  answer: MyString
+
+two:
+  exercice_id: 
+  tense_entry_id: 
+  answer: MyString

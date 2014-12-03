@@ -1,0 +1,73 @@
+<% provide(:title, "Exercice de conjugaison") %>
+<% provide(:description, "Exercices de conjugaison française. Travaillez les temps et les modes que vous souhaitez." ) %>
+
+<div class="container">
+	<div class="col-md-12">
+		<h1 class="page-header text-center nadvence-box box-big-title">Exercice de conjugaison</h1>
+
+		<div class="nadvence-box">
+			<p>
+				<strong>Nombre de questions:</strong>
+				<%= @exercice.question_number %>
+			</p>
+
+			<p>
+				<strong>Temps demandés:</strong>
+				<%= @exercice.tenses.map{|t| t.name + " (" + t.mode.name + ")" }.join(' - ')  %>
+			</p>
+
+		</div>
+
+		<% if !@correction %>
+
+		<h2 class="nadvence-color text-center nadvence-family page-header">Questions</h2>
+		<%= form_tag({controller: "exercices", action: "show"}, method: "get", class: "form-horizontal") do %>
+		<% @exercice.tense_entries.each do |tense_entry| %>
+		<div class="well">
+			<h4> Verbe : <%= link_to tense_entry.verb.content, conjugaisons_verbe_path(tense_entry.verb) %> - <span class="text text-info">Temps :</span> <%= tense_entry.tense.name%> - <span class="text text-warning">Mode :</span> <%= tense_entry.tense.mode.name%>  - <span class="text text-danger"> Personne : </span><%= tense_entry.order_to_human%> </h4>
+			<div class="form-group">
+				<%= label_tag("answers[#{tense_entry.id}]", "Votre réponse:", :class => "col-sm-2 control-label") %>
+				<div class="col-sm-6">
+					<%= text_field_tag("answers[#{tense_entry.id}]", nil, :class => "form-control") %>
+				</div>
+			</div>
+		</div>
+		<% end %>
+
+		<%= hidden_field_tag(:exercice_id, @exercice.id) %>
+		<%= hidden_field_tag(:correction, true) %>
+
+		<div class="text-center">
+			<%= submit_tag("Correction", :class => "btn btn-success btn-lg") %>
+		</div>
+		<% end %>
+
+		<% else%>
+
+		<h2 class="nadvence-color text-center nadvence-family page-header">Questions (Votre score : <%= @score %> / <%= @exercice.question_number %>)</h2>
+
+		<% @exercice.tense_entries.each do |tense_entry| %>
+		<div class="well">
+			<h4> Verbe : <%= link_to tense_entry.verb.content, conjugaisons_verbe_path(tense_entry.verb) %> - <span class="text text-info">Temps :</span> <%= tense_entry.tense.name%> - <span class="text text-warning">Mode :</span> <%= tense_entry.tense.mode.name%>  - <span class="text text-danger"> Personne : </span><%= tense_entry.order_to_human%> </h4>
+			<div class="form-group">
+
+				<% if tense_entry.correct_answer(params["answers"][tense_entry.id.to_s.to_sym]) %>
+				<h4>Votre réponse: <span class="text text-success">"<%= params["answers"][tense_entry.id.to_s.to_sym]%>"</span> | <span class="text text-success"> Correction : <%= tense_entry.important_content %></span> <span class="text text-success"><i class="fa fa-check-circle"></i></span></h4>
+				<% else %>
+				<h4>Votre réponse: <span class="text text-danger">"<%= params["answers"][tense_entry.id.to_s.to_sym]%>"</span> | <span class="text text-success"> Correction : <%= tense_entry.important_content %></span> <span class="text text-danger"><i class="fa fa-times-circle"></i></span></h4>
+
+				<% end %>
+
+			</div>
+		</div>
+
+		<% end %>
+
+		<div class="text-center">
+			<%= link_to "Recommencer l'exercice", @exercice, :class => "btn btn-info btn-lg"%>
+			<%= link_to "Nouvel exercice", new_exercice_path, :class => "btn btn-warning btn-lg"%>
+		</div>
+		<%end %>
+
+	</div>
+</div>

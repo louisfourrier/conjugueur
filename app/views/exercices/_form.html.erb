@@ -1,0 +1,55 @@
+<%= form_for(@exercice, :class => "form-horizontal") do |f| %>
+<% if @exercice.errors.any? %>
+<div id="error_explanation">
+	<h2><%= pluralize(@exercice.errors.count, "error") %> prohibited this exercice from being saved:</h2>
+
+	<ul>
+		<% @exercice.errors.full_messages.each do |message| %>
+		<li>
+			<%= message %>
+		</li>
+		<% end %>
+	</ul>
+</div>
+<% end %>
+<br />
+
+<div class="col-md-12">
+	<div class="col-md-6">
+		<div class="form-group">
+			<%= f.label :question_number, "Nombre de questions", :class => "col-sm-3 control-label" %>
+			<div class="col-sm-9">
+				<%= f.number_field :question_number, :class => "form-control" %>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="col-md-12">
+<h2 class="page-header">Quels temps souhaitez vous travailler ?</h2>
+
+<% Mode.all.each do |mode| -%>
+
+<div class="col-md-4">
+	<h2 class="page-header"><%= mode.name %></h2>
+	<% mode.tenses.each do |tense|%>
+	
+	<div class="checkbox">
+		<label> <%= check_box_tag "exercice[tenses_associated][#{tense.id}]", 1, false, :class => "" %>
+			<%= tense.name %> </label>
+	</div>
+
+	
+
+	<% end %>
+</div>
+<% end -%>
+
+</div>
+
+<div class="col-md-12 text-center">
+	<div class="actions">
+		<%= f.submit("Créer un exercice", :class => "btn btn-success btn-lg") %>
+	</div>
+</div>
+<% end %>
