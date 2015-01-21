@@ -357,6 +357,27 @@ class Verb < ActiveRecord::Base
     return []
     end
   end
+  
+  # Method that send a tweet about a random verb in the Database
+  def self.send_tweet
+    verb = self.order("RANDOM()").first
+    message = self.possible_messages
+    message = message + " " + verb.content
+    url = "http://www.les-conjugaisons.com" + Rails.application.routes.url_helpers.conjugaisons_verbe_path(verb)
+    tags = [verb.content.to_s, "conjugaison", "learnfrench"]
+    TwitterSender.send_tweet(message, url, tags)
+  end
+  
+  # All the different messages for the tweet
+  def self.possible_messages
+    tab = []
+    tab << "Connaissez vous la conjugaison du verbe"
+    tab << "Apprenez à conjuguer le verbe"
+    tab << "Maitrisez vous la conjugaison francaise ? Venez vérifier sur LesConjugaisons"
+    tab << "Le meilleur site pour apprendre et vérifier la conjugaison française"
+    tab.shuffle
+    return tab.first  
+  end
 
   private
 
