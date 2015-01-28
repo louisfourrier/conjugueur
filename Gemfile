@@ -52,6 +52,8 @@ gem 'will_paginate'
 
 gem 'annotate'
 
+gem 'typhoeus'
+
 # For the exception notifications
 gem 'exception_notification'
 
